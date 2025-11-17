@@ -97,8 +97,10 @@ def start(msg):
 #  Botni va Serverni ishga tushrsh
 
 def run_bot():
-    bot.polling(non_stop=True)
+    bot.infinity_polling()
 
 if __name__ == "__main__":
-    threading.Thread(target=run_bot).start()
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    threading.Thread(target=run_bot, daemon=True).start()
+    app.run(host="0.0.0.0", port=5000)
+
+
